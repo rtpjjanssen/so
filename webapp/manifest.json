@@ -1,0 +1,113 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "OVPSO.soovp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "tags": {
+      "keywords": []
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZCDSV_SO_HEADER_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": ["ZCDSV_SO_HEADER_CDS_VAN", "annotation"],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZCDSV_SO_HEADER_CDS_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZCDSV_SO_HEADER_CDS_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/ZCDSV_SO_HEADER_CDS_VAN.xml"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    },
+    "offline": false,
+    "sourceTemplate": {
+      "id": "OVP.smartovptemplate",
+      "version": "1.41.1"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": ["sap_hcb", "sap_belize"]
+  },
+  "sap.ui5": {
+    "resources": {
+      "js": [],
+      "css": []
+    },
+    "dependencies": {
+      "minUI5Version": "1.97.0",
+      "libs": {
+        "sap.ovp": {}
+      },
+      "components": {}
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties",
+        "preload": false
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
+      "mainService": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultCountMode": "Inline"
+        }
+      }
+    },
+    "extends": {
+      "extensions": {}
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  },
+  "sap.ovp": {
+    "globalFilterModel": "mainService",
+    "globalFilterEntityType": "ZCDSV_SO_HEADERType",
+    "containerLayout": "resizable",
+    "enableLiveFilter": true,
+    "considerAnalyticalParameters": false,
+    "cards": {}
+  }
+}
